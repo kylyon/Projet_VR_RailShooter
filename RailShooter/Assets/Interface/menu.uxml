@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/USS/style.uss?fileID=7433441132597879392&amp;guid=0b04b239d131a1740ab787e0a53b6eb7&amp;type=3#style" />
+    <ui:Button text="JOUER" display-tooltip-when-elided="true" name="playButton" class="button" style="height: 151px; -unity-text-align: middle-center; position: absolute; top: 448px; left: 936px; width: 738px; font-size: 48px; -unity-font: none; border-top-left-radius: 16px; border-bottom-left-radius: 16px; border-top-right-radius: 16px; border-bottom-right-radius: 16px;" />
+    <ui:Button text="QUITTER" display-tooltip-when-elided="true" name="quitButton" class="button" style="height: 151px; -unity-text-align: middle-center; position: absolute; top: 632px; left: 936px; width: 738px; font-size: 48px; -unity-font: none; border-top-left-radius: 16px; border-bottom-left-radius: 16px; border-top-right-radius: 16px; border-bottom-right-radius: 16px;" />
+    <ui:Label text="Menu Principal" display-tooltip-when-elided="true" style="position: absolute; height: 115px; width: 1334px; top: 260px; left: 644px; -unity-text-align: middle-center; font-size: 96px;" />
+</ui:UXML>

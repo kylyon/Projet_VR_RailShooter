@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Floor
-    second: {fileID: 2100000, guid: 41100e1d70cd3b94ea6aaf2ec6389350, type: 2}
+    second: {fileID: 2100000, guid: c80eb72a7d8088b44be76d4c96fb8cf0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -18,7 +18,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Wall2
-    second: {fileID: 2100000, guid: ffabc297b50e89340940ea642b2f41d7, type: 2}
+    second: {fileID: 2100000, guid: 3591e95ddfb455840bf55278651cf5c4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

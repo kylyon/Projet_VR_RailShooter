@@ -1,0 +1,3 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement style="height: 96px; background-image: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=8300712400058098730&amp;guid=5656e43736e940c4bb131fe14267b983&amp;type=3#arrow-up&apos;); width: 96px; position: absolute; top: 674px; left: 1232px;" />
+</ui:UXML>

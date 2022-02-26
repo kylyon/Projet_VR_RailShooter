@@ -1,0 +1,11 @@
+.button {
+    background-color: rgba(88, 88, 88, 255);
+    font-size: 48px;
+    transition-duration: 500ms;
+    transition-property: background-color;
+}
+
+.button:hover {
+    background-color: rgba(171, 171, 171, 255);
+    font-size: 48px;
+}
