@@ -1,39 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
-    public UIDocument UIDocument;
-    Button playButton;
-    Button quitButton;
+	public Button playButton;
+	public Button quitButton;
+
+	public Canvas menu;
+	public Canvas hud;
     
 	void Start()
     {
-        var root = UIDocument.rootVisualElement;
-        
-        playButton = root.Q<Button>("playButton");
-        quitButton = root.Q<Button>("quitButton");
-        
-        // add event handler
-        playButton.clickable.clicked += Play;
-        quitButton.clickable.clicked += Quit;
+	    // add event handler
+        playButton.onClick.AddListener(Play);
+        quitButton.onClick.AddListener(Quit);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+	    if (Input.GetKey(KeyCode.Escape))
+	    {
+		    Pause();
+	    }
     }
 
 	void Play()
 	{
-		UIDocument.gameObject.SetActive(false);
+		hud.gameObject.SetActive(true);
+		menu.gameObject.SetActive(false);
 	}
 
 	void Quit()
 	{
-		UIDocument.gameObject.SetActive(false);
+		menu.gameObject.SetActive(true);
+		hud.gameObject.SetActive(false);
+	}
+	
+	void Pause()
+	{
+		menu.gameObject.SetActive(true);
+		hud.gameObject.SetActive(false);
 	}
 }
