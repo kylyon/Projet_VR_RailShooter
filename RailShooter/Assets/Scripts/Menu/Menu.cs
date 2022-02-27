@@ -10,12 +10,15 @@ public class Menu : MonoBehaviour
 
 	public Canvas menu;
 	public Canvas hud;
+	public GameObject setting;
     
 	void Start()
     {
 	    // add event handler
         playButton.onClick.AddListener(Play);
         quitButton.onClick.AddListener(Quit);
+        
+        setting.SetActive(false);
     }
 
     // Update is called once per frame
@@ -31,6 +34,16 @@ public class Menu : MonoBehaviour
 	{
 		hud.gameObject.SetActive(true);
 		menu.gameObject.SetActive(false);
+	}
+	
+	public void Setting()
+	{
+		setting.gameObject.SetActive(true);
+	}
+	
+	public void ExitSetting()
+	{
+		setting.gameObject.SetActive(false);
 	}
 
 	void Quit()
