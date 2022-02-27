@@ -17,6 +17,8 @@ public class CameraMovement : MonoBehaviour
     Vector2 rotation = Vector2.zero;
     const string xAxis = "Mouse X"; //Strings in direct code generate garbage, storing and re-using them creates no garbage
     const string yAxis = "Mouse Y";
+
+    private GameObject lookBall;
     
     // Start is called before the first frame update
     void Start()
@@ -47,11 +49,27 @@ public class CameraMovement : MonoBehaviour
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
             Debug.Log("Did Hit");
+
+            lookBall = hit.collider.gameObject;
+            lookBall.GetComponent<PositionBallBehaviour>().Looked();
+            if (Input.GetButton("Fire1"))
+            {
+                Transform playerBody = GetComponentInParent<Transform>();
+                GetComponentInParent<MovementPlayer>().Move(new Vector3(lookBall.transform.position.x, playerBody.position.y,  lookBall.transform.position.z), 1);
+                lookBall.GetComponent<PositionBallBehaviour>().NotLooked();
+                lookBall = null;
+            }
         }
         else
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
             Debug.Log("Did not Hit");
+            Debug.Log(lookBall);
+            if (lookBall)
+            {
+                lookBall.GetComponent<PositionBallBehaviour>().NotLooked();
+                lookBall = null;
+            }
         }
 
         

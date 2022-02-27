@@ -5,16 +5,35 @@ using UnityEngine;
 public class PositionBallBehaviour : MonoBehaviour
 {
     public Transform transform;
+
+    private bool looked;
     // Start is called before the first frame update
     void Start()
     {
-        
+        looked = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.Get)
+        if (looked)
+        {
+            Grow();
+        }
+        else
+        {
+            Shrink();
+        }
+    }
+
+    public void Looked()
+    {
+        looked = true;
+    }
+
+    public void NotLooked()
+    {
+        looked = false;
     }
 
     void Grow()
