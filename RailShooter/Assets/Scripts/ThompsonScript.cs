@@ -15,6 +15,9 @@ public class ThompsonScript : MonoBehaviour
 
     private float nextActionTime = 0.0f;
     private bool isFiring = false;
+    
+    public int nbBullet;
+    public int nbBulletCurrent;
 
     public void StartFire()
     {
@@ -40,9 +43,14 @@ public class ThompsonScript : MonoBehaviour
 
     private void Fire()
     {
-        GameObject spawnedBullet = Instantiate(bullet, barrel.position, barrel.rotation);
-        spawnedBullet.GetComponent<Rigidbody>().velocity = speed * barrel.forward;
-        audioSource.PlayOneShot(audioClip);
-        Destroy(spawnedBullet, 2);
+        if (nbBulletCurrent > 0)
+        {
+            GameObject spawnedBullet = Instantiate(bullet, barrel.position, barrel.rotation);
+            spawnedBullet.GetComponent<Rigidbody>().velocity = speed * barrel.forward;
+            spawnedBullet.tag = "Bullet";
+            audioSource.PlayOneShot(audioClip);
+            Destroy(spawnedBullet, 2);
+            nbBulletCurrent--;
+        }
     }
 }

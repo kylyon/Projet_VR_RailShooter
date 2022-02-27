@@ -10,13 +10,21 @@ public class FireScript : MonoBehaviour
     public Transform barrel;
     public AudioSource audioSource;
     public AudioClip audioClip;
+    
+    public int nbBullet;
+    public int nbBulletCurrent;
 
     public void Fire()
     {
-        GameObject spawnedBullet = Instantiate(bullet, barrel.position, barrel.rotation);
-        spawnedBullet.AddComponent<Rigidbody>();
-        spawnedBullet.GetComponent<Rigidbody>().velocity = speed * barrel.forward;
-        audioSource.PlayOneShot(audioClip);
-        Destroy(spawnedBullet, 2);
+        if (nbBulletCurrent > 0)
+        {
+            GameObject spawnedBullet = Instantiate(bullet, barrel.position, barrel.rotation);
+            spawnedBullet.AddComponent<Rigidbody>();
+            spawnedBullet.GetComponent<Rigidbody>().velocity = speed * barrel.forward;
+            spawnedBullet.tag = "Bullet";
+            audioSource.PlayOneShot(audioClip);
+            Destroy(spawnedBullet, 2);
+            nbBulletCurrent--;
+        }
     }
 }

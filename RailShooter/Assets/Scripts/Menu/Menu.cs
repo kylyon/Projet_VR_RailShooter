@@ -10,15 +10,18 @@ public class Menu : MonoBehaviour
 
 	public Canvas menu;
 	public Canvas hud;
+	public Canvas endgame;
 	public GameObject setting;
     
 	void Start()
     {
 	    // add event handler
         playButton.onClick.AddListener(Play);
-        quitButton.onClick.AddListener(Quit);
+        quitButton.onClick.AddListener(ExitGame);
         
         setting.SetActive(false);
+        hud.gameObject.SetActive(false);
+        endgame.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -30,10 +33,13 @@ public class Menu : MonoBehaviour
 	    }
     }
 
-	void Play()
+	public  void Play()
 	{
+		GameManager.Instance().StartGame();
 		hud.gameObject.SetActive(true);
 		menu.gameObject.SetActive(false);
+		endgame.gameObject.SetActive(false);
+		playButton.onClick.AddListener(Unpause);
 	}
 	
 	public void Setting()
@@ -46,15 +52,38 @@ public class Menu : MonoBehaviour
 		setting.gameObject.SetActive(false);
 	}
 
-	void Quit()
+	public void Quit()
 	{
+		playButton.onClick.AddListener(Play);
 		menu.gameObject.SetActive(true);
 		hud.gameObject.SetActive(false);
+		endgame.gameObject.SetActive(false);
+	}
+
+	public void ExitGame()
+	{
+		Application.Quit();
 	}
 	
 	void Pause()
 	{
 		menu.gameObject.SetActive(true);
 		hud.gameObject.SetActive(false);
+		endgame.gameObject.SetActive(false);
+	}
+	
+	void Unpause()
+	{
+		hud.gameObject.SetActive(true);
+		menu.gameObject.SetActive(false);
+		endgame.gameObject.SetActive(false);
+	}
+
+	public void EndGameUI()
+	{
+		menu.gameObject.SetActive(false);
+		hud.gameObject.SetActive(false);
+		endgame.gameObject.SetActive(true);
+		playButton.onClick.AddListener(Play);
 	}
 }
