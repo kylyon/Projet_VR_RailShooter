@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -48,11 +49,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            NextTarget();
-        }
-        time = Time.time - timeStart;
+        
+        time = 20 - (Time.time - timeStart);
         var intTime = (int) time;
         timeText.text = intTime.ToString();
         if (time < 0)

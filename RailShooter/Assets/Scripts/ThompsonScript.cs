@@ -46,6 +46,7 @@ public class ThompsonScript : MonoBehaviour
         if (nbBulletCurrent > 0)
         {
             GameObject spawnedBullet = Instantiate(bullet, barrel.position, barrel.rotation);
+            spawnedBullet.AddComponent<Rigidbody>();
             spawnedBullet.GetComponent<Rigidbody>().velocity = speed * barrel.forward;
             spawnedBullet.tag = "Bullet";
             audioSource.PlayOneShot(audioClip);

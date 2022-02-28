@@ -21,6 +21,7 @@ public class FireScript : MonoBehaviour
             GameObject spawnedBullet = Instantiate(bullet, barrel.position, barrel.rotation);
             spawnedBullet.AddComponent<Rigidbody>();
             spawnedBullet.GetComponent<Rigidbody>().velocity = speed * barrel.forward;
+            spawnedBullet.AddComponent<BoxCollider>();
             spawnedBullet.tag = "Bullet";
             audioSource.PlayOneShot(audioClip);
             Destroy(spawnedBullet, 2);
